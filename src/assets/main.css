@@ -1,0 +1,155 @@
+@import './base.css';
+
+#app {
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: 0.4s;
+  padding: 1%;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+nav{
+  background-color:#2991B1 ;
+}
+.submit_accueil{
+  margin-left: 3%;
+}
+/*.formulaire_accueil{
+  background-color: #D9D9D9;
+}*/
+.contenant_photo_profil {
+  display: flex;
+  justify-content: center;
+}
+img.photo_profil {
+  margin-right: 5%;
+}
+.Recherche {
+  display: flex;
+  justify-content: space-around;
+}
+.contenant_tri {
+  background-color: #D9D9D9;
+  padding: 1% 10% 3% 10%;
+  margin-top: 1%;
+}
+body{
+  background-color: #8a989d;
+}
+.nbr_resultat_recherche{
+  text-align: left;
+}
+
+.titre_rechercher {
+  padding: 1%;
+  margin-top: 1%;
+  text-align: left;
+}
+.connexion{
+  background-color: #776A6A;
+}
+.connexion_formulaire {
+  display:flex;
+  flex-direction: column;
+  margin: 0% 20%;
+  text-align: left;
+
+}
+.texte_connexion {
+  margin: 1.5% 0%;
+}
+.Valider_connexion {
+  margin: 1.5% 0%;
+}
+.titre_connexion {
+  margin: 1.5% 0%;
+}
+.discussion {
+  display: flex;
+  justify-content: space-around;
+}
+.contenu_liste_discussion {
+  background-color: #FFFFFF;
+  margin-top: 1%;
+  width: 30%;
+}
+.ajout_discussion {
+  padding: 1% 10% 3% 10%;
+  border: solid #707070;
+}
+.titre_liste_discussion{
+  padding: 1% 10% 3% 10%;
+  border: solid #707070;
+}
+.bouton_lien_crea_appart {
+
+  background-color: #FFF84D;
+  color: #000000;
+}
+.contenant_photo_profil {
+  background-color: #8F8F8F;
+  padding: 2%;
+  margin: 2%;
+  display: flex;
+  flex-direction: row;
+}
+.contenant_description_profil{
+background-color: #8F8F8F;
+padding: 2%;
+margin: 2%;
+
+}
+.contenant_appartement_profil {
+  background-color: #8F8F8F;
+  padding: 2%;
+  margin: 2%;
+}
+.titre_appartement_profil{
+  padding: 2%;
+  text-align: left;
+
+}
+.titre_description_profil {
+  text-align: left;
+}
+.importer_image_apartement {
+  background-color: #D9D9D9;
+  padding: 2%;
+}
+.image_crea_bouton {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+}
+.contenant_appart_image{
+  background-color: #8F8F8F;
+  padding: 2%;
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+}
+.profil_identité {
+  width: 100%;
+  text-align: left;
+}
+.resultat_recherche {
+  background-color: #D9D9D9;
+  border: solid;
+  width: 33%;
+  margin: 2%;
+}
+.conteneur_resultat_recherche {
+  display: flex;
+}
