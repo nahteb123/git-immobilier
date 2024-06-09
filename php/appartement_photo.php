@@ -13,16 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lien = mysqli_connect($nom_serveur , $utilisateur ,$mot_de_passe , $nom_base_données);
 
     // Préparation de la requête SQL
-    $query = mysqli_query($lien , "SELECT a.id_appartement, adresse1, adresse2, loyer, id_ville ,chemin_photo FROM appartement a INNER JOIN photo p ON a.id_appartement = p.id_appartement");
+    $query = mysqli_query($lien , "SELECT chemin_photo FROM appartement a INNER JOIN photo p ON a.id_appartement = p.id_appartement WHERE a.id_appartement =1" );
 
     // Récupération des résultats
     $resultats = [];
     while($row = mysqli_fetch_assoc($query)) {
         $resultats[] = [
-            'id_appartement' => $row['id_appartement'],
-            'adresse' => $row['adresse1'] . ' ' . $row['adresse2'],
-            'loyer' => $row['loyer'],
-            'id_ville' => $row['id_ville'],
             'chemin_photo' => $row['chemin_photo']
         ];
     }

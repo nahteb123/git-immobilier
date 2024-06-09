@@ -3,6 +3,7 @@ include('cors.php');
 cors();
 session_start();
 header('Content-Type: application/json');
+$data = json_decode(file_get_contents('php://input'), true);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Connexion à la base de données
@@ -11,19 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mot_de_passe ="N@hteb2004";
     $nom_base_données ="bermondimmobilier_1" ;
     $lien = mysqli_connect($nom_serveur , $utilisateur ,$mot_de_passe , $nom_base_données);
-
+    $id_client = $data["vendeurId"];
     // Préparation de la requête SQL
-    $query = mysqli_query($lien , "SELECT a.id_appartement, adresse1, adresse2, loyer, id_ville ,chemin_photo FROM appartement a INNER JOIN photo p ON a.id_appartement = p.id_appartement");
+    $query = mysqli_query($lien , "SELECT adresse_mail ,numéro_tel, nom_ville,code_postal FROM vendeur c INNER JOIN ville v ON c.id_ville = v.id_ville WHERE id_vendeur = $id_client");
 
     // Récupération des résultats
     $resultats = [];
     while($row = mysqli_fetch_assoc($query)) {
         $resultats[] = [
-            'id_appartement' => $row['id_appartement'],
-            'adresse' => $row['adresse1'] . ' ' . $row['adresse2'],
-            'loyer' => $row['loyer'],
-            'id_ville' => $row['id_ville'],
-            'chemin_photo' => $row['chemin_photo']
+            'adresse_mail' => $row['adresse_mail'],
+            'numéro_tel' => $row['numéro_tel'] ,
+            'nom_ville' => $row['nom_ville'],
+            'code_postal' => $row['code_postal'] ,
         ];
     }
 
