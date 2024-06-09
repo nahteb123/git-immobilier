@@ -7,6 +7,8 @@ import UserCreaAppartement  from '../views/CreationAppartement.vue'
 import UserDiscussion from '../views/Discussion.vue'
 import UserAppartementFavori  from '../views/AppartementFavori.vue'
 import ConnexionVendeur  from '../views/Connexion_vendeur.vue'
+import DetailAppartement  from '../views/DetailAppartement.vue'
+import UserInscription  from '../views/Inscription.vue'
 
 const routes = [
   {
@@ -48,6 +50,16 @@ const routes = [
     path: '/appart_favori',
     name: 'AppartFavori',
     component: UserAppartementFavori
+  },
+  {
+    path: '/detail_appart',
+    name: 'DetailAppart',
+    component: DetailAppartement
+  },
+  {
+    path: '/inscription',
+    name: 'Inscription',
+    component: UserInscription
   },
   
   

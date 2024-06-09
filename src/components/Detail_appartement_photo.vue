@@ -1,13 +1,68 @@
 <template>
-    <div class="contenant_photo_profil">
-        <img class="photo_profil" src="" alt="photo_profil" >
-        <h2 class="profil_identité"> Ethan Bermond </h2>
-    </div>
-
-  </template>
   
-  <script>
-  export default {
-    name: 'PhotoAppartementDetail'
+    <div class="conteneur_photo_detail_appartement">
+      <div v-for="client in clients" :key="client.chemin_photo" class="resultat_photo">
+        <img :src="client.chemin_photo" alt="Photo d'appartement" />
+      </div>
+    </div>
+    <div v-if="error" class="error-message">{{ error }}</div>
+  
+</template>
+
+<script>
+export default {
+  name: 'RechercheContenu',
+  data() {
+    return {
+      resultCount: 0,
+      error: '',
+      clients: []
+    };
+  },
+  mounted() {
+    this.fetchClients();
+  },
+  methods: {
+    async fetchClients() {
+      try {
+        const response = await fetch('http://localhost/projet_immobilier/php/appartement_photo.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+        if (data.success) {
+          this.clients = data.results; // Mettez à jour la liste des clients avec les résultats de l'API
+          this.resultCount = this.clients.length; // Mettez à jour le nombre total de clients trouvés
+        } else {
+          this.error = data.message || 'Une erreur est survenue lors de la récupération des données.';
+        }
+      } catch (err) {
+        console.error(err);
+        this.error = 'Une erreur est survenue. Veuillez réessayer.';
+      }
+    },
+  
   }
-  </script>
+};
+</script>
+
+<style scoped>
+.conteneur_resultat_recherche {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.resultat_recherche {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+</style>

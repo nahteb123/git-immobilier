@@ -1,6 +1,5 @@
 <template>
     <div class="connexion">
-      <h1 class="titre_connexion">Page Connexion</h1>
       <ConnexionFormulaireVendeur></ConnexionFormulaireVendeur>
     </div>
 </template>
